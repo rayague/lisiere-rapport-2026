@@ -156,8 +156,9 @@ cabinet soumis au RGAA a des obligations contraignantes.
   absolues portent l'information.
 - **Aucune information accessible au seul survol.** Le survol n'existe pas
   sur mobile.
-- **La page entière fonctionne sans JavaScript**, graphiques compris. Il n'y
-  a d'ailleurs aucun JavaScript livré à ce stade.
+- **La page entière fonctionne sans JavaScript**, graphiques compris. Le
+  script d'animation ne fait que poser un état de départ puis revenir à
+  l'état du document : s'il échoue, le rapport reste exact et complet.
 - Contrastes vérifiés par le calcul avant la première ligne de HTML. Trois
   valeurs du brief ne passaient pas et ont été corrigées.
 - Feuille `@media print` complète : un rapport se cite et s'imprime.
@@ -221,7 +222,9 @@ Le JavaScript n'ajoute aucun contenu : il pose un état de départ puis revient
 - **Les données datent de 2015** alors que le rapport s'intitule *Rapport
   2026*. C'est exact à condition de le dire en évidence, ce que fait la
   section méthode.
-- **Licence du code** à choisir.
+- **Licence écrite**, voir [LICENCE.md](LICENCE.md). Le code est sous
+  droit d'auteur exclusif, les polices sous OFL, et les données gardent la
+  licence de leur producteur.
 
 ## Sources et licences
 
