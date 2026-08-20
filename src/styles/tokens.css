@@ -1,0 +1,139 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   LISIERE, Rapport 2026
+   TOKENS, source de verite unique.
+
+   Aucune valeur hexadecimale ni espacement en dur ailleurs dans le projet.
+   Seule exception : src/signature.js, autonome par conception.
+
+   Tous les ratios notes ici sont calcules, pas estimes, et verifies AVANT
+   la premiere ligne de HTML comme le brief l'exigeait. Trois valeurs du
+   brief ne passaient pas : elles sont corrigees et la correction est datee
+   ci-dessous.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root{
+
+  /* ─────────────────────────────────────────────────────── fond et texte
+     Le fond ne bouge JAMAIS, du haut de la page jusqu'en bas. C'est
+     l'exact oppose de SEVE, et c'est le sujet : ici, la seule chose qui a
+     le droit de changer, c'est la donnee.                                 */
+
+  --papier: #F0EFE9;   /* fond unique                                      */
+  --encre:  #14181C;   /* texte courant et la ligne     15,48:1 sur papier */
+
+
+  /* ──────────────────────────────────────────── donnee : deux couleurs
+     Elles encodent une opposition reelle du jeu de donnees, pas une
+     decoration. Aucune autre couleur n'entre dans la page.
+
+     --recul valait #C4442A au brief, soit 4,33:1, sous le seuil. Assombri
+     de 3 % il atteint 4,56:1. Le rouge reste franc, l'ecart est invisible
+     a l'oeil et la conformite est acquise.                                */
+
+  --recul:  #BE4229;   /* secteurs en recul              4,56:1 sur papier */
+  --stable: #2E5E6B;   /* secteurs stables ou en accretion 6,22:1          */
+
+  /* ATTENTION, mesure a connaitre : --recul et --stable ne se distinguent
+     que par 1,37:1 l'une de l'autre. Deux barres adjacentes sont quasi
+     indiscernables en niveaux de gris, a l'impression noir et blanc et
+     pour une partie des lecteurs daltoniens.
+
+     La couleur n'est donc JAMAIS seule porteuse d'information : le signe
+     de la valeur et le sens de la barre la doublent systematiquement.
+     Cette regle n'est pas une precaution, c'est une obligation.           */
+
+
+  /* ──────────────────────────────────────── graduations et texte secondaire
+     Le brief confiait les deux roles a --trame. Une seule valeur ne peut
+     pas les tenir : #C9C7BE donne 1,47:1, ce qui echoue meme au seuil de
+     3:1 des elements non textuels. Les roles sont donc separes.           */
+
+  --trame:     #C9C7BE;  /* graduations et reperes UNIQUEMENT,   1,47:1
+                            volontairement a la limite du visible : le
+                            concept de la page interdit toute grille qui
+                            concurrencerait la ligne.
+
+                            CONDITION STRICTE qui rend ce choix legitime :
+                            une graduation ne porte jamais seule une
+                            valeur. Toutes les etiquettes sont visibles en
+                            permanence, en texte. Si un jour une valeur
+                            ne se lit que sur une graduation, cette
+                            couleur devient une faute et doit passer a
+                            #8B8983, qui donne 3,04:1.                     */
+
+  --trame-txt: #6D6B67;  /* notes 13px et texte secondaire       4,62:1    */
+
+
+  /* ───────────────────────────────────────── espacement, base 8 reguliere
+     Progression reguliere, pas la suite organique de SEVE. Ici la
+     regularite est le message : c'est un rapport, pas une plaquette.      */
+
+  --e1: 8px;
+  --e2: 16px;   /* marges mobiles, et marges des graphiques pleine largeur */
+  --e3: 24px;
+  --e4: 40px;
+  --e5: 64px;
+  --e6: 96px;
+
+
+  /* ───────────────────────────────────────────────────────────── mesures */
+
+  --colonne: 68ch;    /* longueur de ligne maximale                        */
+  --contenu: 1140px;  /* largeur maximale du contenu                       */
+  --ligne:   2px;     /* LA ligne. Le seul trait de la page                */
+  --filet:   1px;     /* graduations                                       */
+  --rayon:   2px;     /* border-radius maximal. Jamais au-dela             */
+  --focus:   3px;     /* decalage du contour de focus                      */
+
+
+  /* ───────────────────────────────────────────────────── durees et easings
+     Plafond absolu du brief : 800 ms pour qu'un graphique atteigne son
+     etat final. Au-dela, on fait patienter quelqu'un devant une
+     information. Aucune duree ci-dessous ne le depasse.                   */
+
+  --t-court:   .2s;
+  --t-moyen:   .5s;   /* poussee des barres                                */
+  --t-morph:   .7s;   /* morphing de la ligne, seul effet spectaculaire    */
+  --t-compte:  .7s;   /* compteurs numeriques                              */
+  --t-trace:   .9s;   /* trace de la ligne du hero, hors plafond car elle
+                         ne retarde la lecture d'aucun chiffre             */
+  --t-reduit:  .2s;   /* prefers-reduced-motion                            */
+
+  --e-sortie: cubic-bezier(.16, 1, .3, 1);
+  --e-doux:   cubic-bezier(.65, 0, .35, 1);   /* equivalent power2.inOut   */
+
+
+  /* ─────────────────────────────────────────────────────────── typographie
+     Une superfamille, trois coupes. Registre rapport d'ingenieur, pas
+     plaquette d'agence, et aux antipodes du serif de SEVE.
+
+     L'echelle est PLUS PETITE que celle de SEVE : un rapport qui crie
+     n'est pas credible.
+
+     Les woff2 arrivent en fin de session 1. Les piles de repli ci-dessous
+     ne servent qu'au premier rendu.                                       */
+
+  --f-titre: 'IBM Plex Sans Condensed', 'Arial Narrow', system-ui, sans-serif;
+  --f-corps: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --f-mono:  'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  --p-titre:  600;
+  --p-corps:  400;
+  --p-chiffre:500;
+
+  --ts-display:   clamp(2.2rem, 7vw, 4.2rem);
+  --ts-h2:        clamp(1.3rem, 4vw, 1.9rem);
+  --ts-chiffre:   clamp(3.5rem, 16vw, 9rem);
+  --ts-corps:     1rem;
+  --ts-etiquette: 11px;
+  --ts-note:      13px;
+
+  --lh-display:   .96;
+  --lh-h2:        1.1;
+  --lh-chiffre:   1;
+  --lh-corps:     1.65;
+  --lh-etiquette: 1.4;
+
+  --ls-display:   -.02em;
+  --ls-etiquette: .08em;
+}

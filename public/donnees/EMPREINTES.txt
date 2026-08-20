@@ -1,0 +1,28 @@
+# Empreintes des sources brutes
+#
+# Les fichiers eux-memes ne sont pas versionnes : 60 Mo pour un depot
+# public, c'est non. La tracabilite passe par ces sommes SHA-256.
+# Retelecharger, verifier l'empreinte, puis lancer : npm run donnees
+
+N_dates_evolution_trait_cote_L.zip
+  sha256 29187bb4ce09ac36e2f7d15cb14c7f735fdb04b99bbc942c8d53eb5d46c3f165
+
+N_duree_evolution_trait_cote_L.zip
+  sha256 6081fe4a548a1d287069edc71b7a9271dbfedf3c58f938218433ebd824a6a0a3
+
+N_traits_cote_naturels_recents_L.zip
+  sha256 c80e0c35d20e4f79167dffd430b528559a7a6f284bff54db9e5ec1193fee754d
+
+evolution_trait_cote_metropole.zip
+  sha256 71eeb3d1f1a0693d0622a2d9b5bbb3aa9458975de31cf95300c314667185aa6b
+
+regions-osm.zip
+  sha256 33e2415fe127bf4e4ded907ae5c215c3a81a3c6026705c56021f6a94f53a61dd
+
+Origines
+  evolution_trait_cote_metropole.zip
+    https://geolittoral.din.developpement-durable.gouv.fr/telechargement/couches_sig/N_evolution_trait_cote_S_fr_epsg2154_062018_shape.zip
+  N_traits_cote_naturels_recents_L.zip
+    https://geolittoral.din.developpement-durable.gouv.fr/telechargement/couches_sig/N_traits_cote_naturels_recents_L_fr_epsg2154_062018_shape.zip
+  regions-osm.zip
+    https://osm13.openstreetmap.fr/~cquest/openfla/export/regions-20180101-shp.zip

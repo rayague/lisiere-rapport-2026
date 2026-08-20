@@ -1,0 +1,268 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   LISIÈRE, sections
+   Mobile 390 px d'abord, puis 720 px, puis 1140 px.
+   Grille base 8. La régularité est le message.
+   Aucune animation : la session 2 est statique.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.section{
+  padding:var(--e6) var(--e2);
+  max-width:var(--contenu);
+  margin-inline:auto;
+}
+
+/* La colonne de texte est plafonnée, mais les graphiques débordent en pleine
+   largeur avec 16 px de marge seulement : la donnée a besoin de place. */
+.colonnes{
+  display:flex;
+  flex-direction:column;
+  gap:var(--e3);
+  margin-block:var(--e4);
+}
+
+.figure{
+  display:flex;
+  flex-direction:column;
+  gap:var(--e3);
+  margin-top:var(--e5);
+}
+
+
+/* ══ LA LIGNE ═══════════════════════════════════════════════════════════════
+   Une seule ligne parcourt le document et change de sens d'une section à
+   l'autre. C'est la seule règle graphique de la page : aucun autre filet,
+   aucune bordure, aucune grille visible. Le réflexe du rapport
+   institutionnel est de couvrir la page de hairlines. Ici il n'y en a
+   qu'une, et elle porte l'information.                                      */
+
+.ligne path{
+  fill:none;
+  stroke:var(--encre);
+  stroke-width:var(--ligne);
+  stroke-linejoin:round;
+  stroke-linecap:round;
+}
+
+.ligne--littoral{
+  width:100%;
+  max-width:520px;
+  margin:var(--e5) auto 0;
+}
+
+.ligne--trait{
+  width:100%;
+  height:4px;
+  margin-block:var(--e3) var(--e4);
+}
+.ligne--trait path{ stroke-width:var(--filet); }
+
+
+/* ══ 01 · HERO ══════════════════════════════════════════════════════════════
+   Un seul chiffre, énorme. Pas de dérive ambiante : un document ne respire
+   pas, il se lit.                                                           */
+
+.hero{
+  display:flex;
+  flex-direction:column;
+  gap:var(--e3);
+  padding-top:var(--e5);
+}
+
+.hero .display{ margin-top:var(--e2); }
+
+.etiquette--sous{ color:var(--trame-txt); }
+
+.hero .chiffre{ margin-top:var(--e4); }
+
+.note--large{ max-width:var(--colonne); }
+
+
+/* ══ 02 · LE RECUL ══════════════════════════════════════════════════════════ */
+
+.graphe{ width:100%; height:auto; }
+
+.graphe--courbe{ height:200px; }
+
+/* Les graduations sont volontairement à la limite du visible : elles ne
+   portent jamais seule une valeur, toutes les étiquettes sont en texte.
+   Voir la condition inscrite dans tokens.css.                              */
+.axe{
+  stroke:var(--trame);
+  stroke-width:var(--filet);
+  vector-effect:non-scaling-stroke;
+}
+.axe--zero{ stroke-dasharray:3 4; }
+
+.aire--recul { fill:var(--recul);  opacity:.14; }
+.aire--stable{ fill:var(--stable); opacity:.14; }
+
+.courbe{
+  fill:none;
+  stroke:var(--encre);
+  stroke-width:var(--ligne);
+  stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;
+}
+
+.annotations{
+  display:flex;
+  flex-direction:column;
+  gap:var(--e1);
+  font-size:var(--ts-note);
+  color:var(--trame-txt);
+}
+
+.annotations__valeur{
+  font-family:var(--f-mono);
+  font-weight:var(--p-chiffre);
+  font-variant-numeric:tabular-nums;
+  color:var(--encre);
+  display:inline-block;
+  min-width:8ch;
+}
+
+
+/* ══ 03 · LA GÉOGRAPHIE ═════════════════════════════════════════════════════
+   Chaque barre porte son nom et ses valeurs, toujours visibles. Aucune
+   information n'est accessible au seul survol : le survol n'existe pas sur
+   mobile.
+
+   La couleur ne porte jamais seule l'information. Elle ne le peut pas :
+   --recul et --stable ne se distinguent que par 1,37:1 l'une de l'autre, ce
+   qui les rend quasi identiques en niveaux de gris. Le nom, la part et les
+   valeurs absolues font le travail.                                         */
+
+.barre__nom{
+  font-family:var(--f-titre);
+  font-weight:var(--p-titre);
+  font-size:15px;
+  fill:var(--encre);
+}
+
+.barre__km,
+.barre__part{
+  font-family:var(--f-mono);
+  font-size:12px;
+  font-variant-numeric:tabular-nums;
+}
+.barre__km  { fill:var(--trame-txt); }
+.barre__part{ fill:var(--recul); font-weight:var(--p-chiffre); }
+
+.barre__piste { fill:var(--trame); opacity:.5; }
+.barre__valeur{ fill:var(--recul); }
+
+
+/* ══ 04 · CE QUI EST EN JEU ═════════════════════════════════════════════════
+   La section nue. Un chiffre, une phrase, rien d'autre sur l'écran.
+   Pas de graphique, pas d'illustration, pas de ligne.
+
+   C'est le silence de la méthode transposé au registre documentaire. Sans
+   lui, le rapport n'est qu'une succession de graphiques. Avec lui, il a un
+   moment.                                                                    */
+
+.enjeu{
+  min-height:74svh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:var(--e3);
+}
+
+.phrase{
+  font-family:var(--f-titre);
+  font-weight:var(--p-titre);
+  font-size:var(--ts-h2);
+  line-height:var(--lh-h2);
+  max-width:34ch;
+  text-wrap:balance;
+}
+
+
+/* ══ 05 · MÉTHODE ET SOURCES ════════════════════════════════════════════════
+   Ce n'est pas un pied de page, c'est la conclusion. Déclarer les limites de
+   sa donnée est le geste le plus professionnel du document : c'est ce qui
+   distingue un rapport d'une infographie.                                    */
+
+.methode h3{ margin-top:var(--e4); margin-bottom:var(--e1); }
+.methode .corps + .corps{ margin-top:var(--e2); }
+
+.telechargements{
+  display:flex;
+  flex-direction:column;
+  gap:var(--e1);
+  margin-top:var(--e4);
+  font-family:var(--f-mono);
+  font-size:var(--ts-note);
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   720 px
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (min-width:720px){
+
+  .section{ padding-inline:var(--e4); }
+
+  .colonnes{
+    flex-direction:row;
+    gap:var(--e5);
+    align-items:start;
+  }
+  .colonnes > *{ flex:1 1 0; min-width:0; }
+
+  .graphe--courbe{ height:280px; }
+
+  .annotations{
+    flex-direction:row;
+    flex-wrap:wrap;
+    gap:var(--e2) var(--e4);
+  }
+
+  .barre__nom{ font-size:16px; }
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   1140 px
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (min-width:1140px){
+
+  .section{ padding-inline:var(--e6); }
+
+  .hero{
+    display:grid;
+    grid-template-columns:1fr auto;
+    grid-template-areas:
+      'etiq   ligne'
+      'titre  ligne'
+      'sous   ligne'
+      'chiffre ligne'
+      'note   ligne';
+    column-gap:var(--e6);
+    align-items:start;
+  }
+  .hero > .etiquette:first-child{ grid-area:etiq; }
+  .hero .display                { grid-area:titre; }
+  .hero .etiquette--sous        { grid-area:sous; }
+  .hero .chiffre                { grid-area:chiffre; }
+  .hero .note--large            { grid-area:note; }
+  .hero .ligne--littoral        { grid-area:ligne; margin:0; width:340px; }
+
+  .graphe--courbe{ height:340px; }
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Mouvement réduit. Rien à couper en session 2, la page est statique, mais
+   la règle est posée pour la session 3.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+}

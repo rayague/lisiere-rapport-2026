@@ -1,0 +1,234 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   LISIÈRE, base
+   Polices, remise à zéro, échelle typographique, accessibilité, impression.
+   Aucune valeur hexadécimale ni espacement en dur : tout vient de tokens.css.
+   Aucune animation dans ce fichier, la session 2 est statique.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+
+/* ─────────────────────────────────────────────────────────────── polices
+   Une superfamille, trois coupes. Auto-hébergées, sous-ensemblées sur les
+   133 glyphes réellement composés. 65,9 Ko au total.
+   Le condensé tient mieux les titres longs sur mobile que le romain.     */
+
+@font-face{
+  font-family:'IBM Plex Sans Condensed';
+  font-style:normal; font-weight:600; font-display:swap;
+  src:url('/fonts/plex-cond-600.woff2') format('woff2');
+}
+@font-face{
+  font-family:'IBM Plex Sans';
+  font-style:normal; font-weight:400; font-display:swap;
+  src:url('/fonts/plex-sans-400.woff2') format('woff2');
+}
+@font-face{
+  font-family:'IBM Plex Mono';
+  font-style:normal; font-weight:400; font-display:swap;
+  src:url('/fonts/plex-mono-400.woff2') format('woff2');
+}
+@font-face{
+  font-family:'IBM Plex Mono';
+  font-style:normal; font-weight:500; font-display:swap;
+  src:url('/fonts/plex-mono-500.woff2') format('woff2');
+}
+
+
+/* ──────────────────────────────────────────────────────────── remise à zéro */
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+
+body,h1,h2,h3,p,figure,figcaption,ul,ol,li,table,caption{ margin:0; padding:0; }
+ul{ list-style:none; }
+svg{ display:block; max-width:100%; }
+code{ font-family:var(--f-mono); font-size:.92em; }
+
+
+/* ───────────────────────────────────────────────────────────────── document
+   Le fond ne bouge jamais, du début à la fin. Ici, la seule chose qui a le
+   droit de changer, c'est la donnée.                                       */
+
+body{
+  background:var(--papier);
+  color:var(--encre);
+  font-family:var(--f-corps);
+  font-weight:var(--p-corps);
+  font-size:var(--ts-corps);
+  line-height:var(--lh-corps);
+  overflow-x:hidden;
+}
+
+
+/* ────────────────────────────────────────────────── échelle typographique
+   Plus petite que celle de SÈVE. Un rapport qui crie n'est pas crédible.  */
+
+.display{
+  font-family:var(--f-titre);
+  font-weight:var(--p-titre);
+  font-size:var(--ts-display);
+  line-height:var(--lh-display);
+  letter-spacing:var(--ls-display);
+  text-wrap:balance;
+}
+
+h2{
+  font-family:var(--f-titre);
+  font-weight:var(--p-titre);
+  font-size:var(--ts-h2);
+  line-height:var(--lh-h2);
+  text-wrap:balance;
+}
+
+h3{
+  font-family:var(--f-titre);
+  font-weight:var(--p-titre);
+  font-size:var(--ts-corps);
+  line-height:var(--lh-h2);
+}
+
+/* Étiquettes : Plex Mono, lettrées, majuscules. Les capitales viennent de
+   text-transform et non de la saisie, pour que les lecteurs d'écran
+   n'épellent pas les mots.                                                */
+.etiquette{
+  font-family:var(--f-mono);
+  font-weight:var(--p-corps);
+  font-size:var(--ts-etiquette);
+  line-height:var(--lh-etiquette);
+  letter-spacing:var(--ls-etiquette);
+  text-transform:uppercase;
+}
+
+.corps{
+  max-width:var(--colonne);
+  text-wrap:pretty;
+}
+
+.note{
+  font-size:var(--ts-note);
+  line-height:1.55;
+  color:var(--trame-txt);
+  max-width:var(--colonne);
+}
+
+
+/* ─────────────────────────────────────────────────────── le chiffre géant
+   Plex Mono, chiffres tabulaires. Sans tabular-nums, un nombre qui compte
+   fait sauter la largeur et toute la page tremble. La règle vaut dès la
+   version statique : c'est ici que la largeur se fige.                    */
+
+.chiffre{
+  font-family:var(--f-mono);
+  font-weight:var(--p-chiffre);
+  font-variant-numeric:tabular-nums;
+  line-height:var(--lh-chiffre);
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:var(--e2);
+}
+
+.chiffre__valeur{
+  font-size:var(--ts-chiffre);
+  letter-spacing:-.03em;
+  color:var(--recul);
+}
+
+.chiffre__unite{
+  font-size:var(--ts-h2);
+  color:var(--encre);
+}
+
+
+/* ────────────────────────────────────────────────────────────────── liens */
+
+a{
+  color:var(--encre);
+  text-decoration-thickness:var(--filet);
+  text-underline-offset:.25em;
+}
+a:hover{ text-decoration-thickness:var(--ligne); }
+
+
+/* ─────────────────────────────────────────────────────────── accessibilité */
+
+:focus-visible{
+  outline:var(--ligne) solid var(--encre);
+  outline-offset:var(--focus);
+}
+
+/* Les tableaux équivalents sont RÉELS : présents dans le DOM, lus par les
+   lecteurs d'écran, sélectionnables, et restitués à l'impression. Ils ne
+   sont que masqués visuellement. C'est ce qui rend chaque graphique
+   accessible sans dupliquer le contenu.                                   */
+/* Le masquage porte sur un CONTENEUR, jamais sur le <table> lui-même : un
+   tableau ignore width:1px et s'étale à la largeur de son contenu. Mesuré
+   avant correction : 424 px de large sur un écran de 375, donc un
+   défilement horizontal que rien ne laissait voir puisque le tableau est
+   invisible. Un div, lui, respecte la contrainte.                        */
+.equivalent{
+  position:absolute;
+  width:1px;height:1px;
+  margin:-1px;padding:0;border:0;
+  overflow:hidden;
+  clip-path:inset(50%);
+  white-space:nowrap;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   IMPRESSION
+   Un rapport se cite, s'imprime et se capture. Deux heures de travail, et
+   c'est le détail qui fait dire « ces gens savent ce qu'ils font ».
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media print{
+  @page{ margin:18mm 16mm; }
+
+  body{ background:#fff; font-size:10.5pt; line-height:1.45; }
+
+  .section{ min-height:0; padding:0 0 12mm; break-inside:avoid; }
+  .hero{ padding-top:0; }
+
+  h2,h3{ break-after:avoid; }
+  figure,.chiffre{ break-inside:avoid; }
+
+  /* Le graphique et son tableau deviennent complémentaires sur papier :
+     la courbe pour la forme, le tableau pour les valeurs exactes. */
+  .equivalent{
+    position:static;
+    width:auto;height:auto;
+    margin:var(--e3) 0 0;
+    overflow:visible;
+    clip-path:none;
+    white-space:normal;
+  }
+  .equivalent table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:9pt;
+    font-family:var(--f-mono);
+    font-variant-numeric:tabular-nums;
+  }
+  .equivalent caption{
+    text-align:left;
+    font-family:var(--f-titre);
+    font-size:10pt;
+    padding-bottom:2mm;
+  }
+  .equivalent th,.equivalent td{
+    border-bottom:var(--filet) solid var(--trame);
+    padding:1.2mm 3mm 1.2mm 0;
+    text-align:left;
+  }
+
+  /* Une URL imprimée sans son adresse ne sert à rien. */
+  .telechargements a::after{
+    content:' (' attr(href) ')';
+    font-family:var(--f-mono);
+    font-size:8.5pt;
+    color:var(--trame-txt);
+  }
+
+  .ligne--littoral{ max-height:70mm; }
+}

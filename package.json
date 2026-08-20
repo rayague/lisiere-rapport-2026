@@ -1,0 +1,17 @@
+{
+  "name": "lisiere-rapport-2026",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "LISIERE, rapport annuel interactif sur le recul du trait de cote. Pineapple Effect.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "donnees": "node outils/agreger.cjs",
+    "graphiques": "node outils/generer-svg.cjs"
+  },
+  "devDependencies": {
+    "vite": "^5.4.11"
+  }
+}

@@ -1,0 +1,25 @@
+# dependances
+node_modules/
+
+# sortie de build
+dist/
+.vite/
+
+# SOURCES BRUTES, 60 Mo, volontairement hors depot.
+# La tracabilite est assuree autrement : data/EMPREINTES.txt contient les
+# URL et les sommes SHA-256 de chaque fichier telecharge, et
+# outils/agreger.js regenere data/traite.json a l'identique.
+data/brut/
+
+# fichiers de travail intermediaires, regenerables
+data/jointure-detail.json
+data/agregat-brut.json
+
+# environnement
+*.local
+.env
+.env.*
+
+# systeme
+.DS_Store
+Thumbs.db

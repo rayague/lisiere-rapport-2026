@@ -1,0 +1,241 @@
+{
+  "source": {
+    "intitule": "Indicateur national de l erosion cotiere",
+    "producteur": "Cerema",
+    "maitriseOuvrage": "MTES-DGALN",
+    "couches": [
+      "N_evolution_trait_cote_S (metropole, EPSG:2154)",
+      "N_traits_cote_naturels_recents_L (metropole, EPSG:2154)"
+    ],
+    "portail": "geolittoral.developpement-durable.gouv.fr",
+    "dateProduction": "2015",
+    "derniereMajFichier": "2017-12-19",
+    "contoursRegionaux": {
+      "source": "OpenStreetMap, export 2018-01-01",
+      "licence": "ODbL",
+      "attribution": "(c) les contributeurs d OpenStreetMap sous licence ODbL"
+    }
+  },
+  "perimetre": {
+    "territoire": "France metropolitaine",
+    "periodeAnalysee": {
+      "debut": 1920,
+      "fin": 2014
+    },
+    "dureeMedianeAns": 60,
+    "dureeMinAns": 54,
+    "dureeMaxAns": 91
+  },
+  "lineaire": {
+    "totalKm": 4658.7,
+    "mesureKm": 3879.3,
+    "nonMesureKm": 284.7,
+    "horsCouvertureKm": 494.7
+  },
+  "evolution": {
+    "reculKm": 935.4,
+    "stableKm": 2379,
+    "accretionKm": 564.9,
+    "partReculSurMesure": 24.11,
+    "partReculSurTotal": 20.080000000000002
+  },
+  "taux": {
+    "unite": "metres par an",
+    "min": -7.914,
+    "max": 15.308,
+    "mediane": 0,
+    "moyenne": -0.036,
+    "segmentsRetenus": 17158,
+    "segmentsEcartes": 3493
+  },
+  "regions": [
+    {
+      "nom": "Nouvelle-Aquitaine",
+      "code": "75",
+      "mesureKm": 297.4,
+      "reculKm": 184.6,
+      "stableKm": 21.2,
+      "accretionKm": 91.7,
+      "partRecul": 62.05,
+      "segments": 349
+    },
+    {
+      "nom": "Normandie",
+      "code": "28",
+      "mesureKm": 380.3,
+      "reculKm": 216.5,
+      "stableKm": 87.5,
+      "accretionKm": 76.3,
+      "partRecul": 56.92999999999999,
+      "segments": 531
+    },
+    {
+      "nom": "Occitanie",
+      "code": "76",
+      "mesureKm": 189.1,
+      "reculKm": 92.3,
+      "stableKm": 21.8,
+      "accretionKm": 75,
+      "partRecul": 48.83,
+      "segments": 370
+    },
+    {
+      "nom": "Hauts-de-France",
+      "code": "32",
+      "mesureKm": 112.5,
+      "reculKm": 53,
+      "stableKm": 11.9,
+      "accretionKm": 47.6,
+      "partRecul": 47.14,
+      "segments": 97
+    },
+    {
+      "nom": "Pays de la Loire",
+      "code": "52",
+      "mesureKm": 238.3,
+      "reculKm": 69.9,
+      "stableKm": 112.3,
+      "accretionKm": 56.1,
+      "partRecul": 29.339999999999996,
+      "segments": 439
+    },
+    {
+      "nom": "Provence-Alpes-Côte d'Azur",
+      "code": "93",
+      "mesureKm": 409.8,
+      "reculKm": 90.5,
+      "stableKm": 277.7,
+      "accretionKm": 41.6,
+      "partRecul": 22.09,
+      "segments": 1447
+    },
+    {
+      "nom": "Corse",
+      "code": "94",
+      "mesureKm": 814.4,
+      "reculKm": 89.4,
+      "stableKm": 644.5,
+      "accretionKm": 80.5,
+      "partRecul": 10.98,
+      "segments": 1320
+    },
+    {
+      "nom": "Bretagne",
+      "code": "53",
+      "mesureKm": 1437.4,
+      "reculKm": 139.1,
+      "stableKm": 1202.1,
+      "accretionKm": 96.2,
+      "partRecul": 9.68,
+      "segments": 3277
+    }
+  ],
+  "distribution": {
+    "pas": 0.25,
+    "borneMin": -3,
+    "borneMax": 3,
+    "note": "Les segments a taux exactement nul sont retires de la courbe : ils pesent 2379 km et ecrasaient toute autre classe. Ils sont annonces comme un chiffre a part. La courbe repond a la seconde question : parmi la cote qui a bouge, comment a-t-elle bouge.",
+    "stableKm": 2379,
+    "aBougeKm": 1500.4,
+    "classes": [
+      {
+        "taux": -3,
+        "km": 2
+      },
+      {
+        "taux": -2.75,
+        "km": 4.8
+      },
+      {
+        "taux": -2.5,
+        "km": 7.2
+      },
+      {
+        "taux": -2.25,
+        "km": 4.4
+      },
+      {
+        "taux": -2,
+        "km": 9.7
+      },
+      {
+        "taux": -1.75,
+        "km": 10.1
+      },
+      {
+        "taux": -1.5,
+        "km": 16.3
+      },
+      {
+        "taux": -1.25,
+        "km": 26.1
+      },
+      {
+        "taux": -1,
+        "km": 44.9
+      },
+      {
+        "taux": -0.75,
+        "km": 69.8
+      },
+      {
+        "taux": -0.5,
+        "km": 176.4
+      },
+      {
+        "taux": -0.25,
+        "km": 556.6
+      },
+      {
+        "taux": 0,
+        "km": 319.6
+      },
+      {
+        "taux": 0.25,
+        "km": 114.6
+      },
+      {
+        "taux": 0.5,
+        "km": 56.8
+      },
+      {
+        "taux": 0.75,
+        "km": 24
+      },
+      {
+        "taux": 1,
+        "km": 7.3
+      },
+      {
+        "taux": 1.25,
+        "km": 2.3
+      },
+      {
+        "taux": 1.5,
+        "km": 6.8
+      },
+      {
+        "taux": 1.75,
+        "km": 7
+      },
+      {
+        "taux": 2,
+        "km": 5
+      },
+      {
+        "taux": 2.25,
+        "km": 3.2
+      },
+      {
+        "taux": 2.5,
+        "km": 14.7
+      },
+      {
+        "taux": 2.75,
+        "km": 2.8
+      }
+    ],
+    "queueReculKm": 7,
+    "queueAccretionKm": 0.9
+  }
+}

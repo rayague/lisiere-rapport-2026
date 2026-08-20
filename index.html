@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>LISIÈRE · Le recul du trait de côte</title>
+<meta name="description" content="935 km de trait de côte naturel en recul en France métropolitaine. Rapport 2026 de LISIÈRE, à partir de l’indicateur national de l’érosion côtière du Cerema.">
+
+<link rel="preload" as="font" type="font/woff2" href="/fonts/plex-cond-600.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/plex-mono-500.woff2" crossorigin>
+
+<link rel="stylesheet" href="/src/styles/tokens.css">
+<link rel="stylesheet" href="/src/styles/base.css">
+<link rel="stylesheet" href="/src/styles/sections.css">
+</head>
+
+<body>
+<main>
+
+  <!-- 01 . HERO. La ligne est le littoral. -->
+  <section class="section hero" id="hero">
+    <p class="etiquette">LISIÈRE · Observatoire du trait de côte</p>
+    <h1 class="display">Le recul du trait de côte<br>en France métropolitaine</h1>
+    <p class="etiquette etiquette--sous">Rapport 2026</p>
+
+    <p class="chiffre"><span class="chiffre__valeur">935</span> <span class="chiffre__unite">kilomètres</span></p>
+
+    <p class="note note--large">
+      de trait de côte naturel en recul en France métropolitaine, sur les
+      3 879 km couverts par l’indicateur national de l’érosion côtière.
+      Période analysée : 1920 à 2014, durée médiane de 60 ans.
+      Source : Cerema pour le MTES-DGALN, données produites en 2015.
+    </p>
+
+    <svg class="ligne ligne--littoral" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet"
+         role="img" aria-label="Contour du littoral métropolitain, tracé à partir des segments de l’indicateur.">
+      <path d="M218.3 507.5 L222.3 524.4 L228.8 541.5 L227 560.7 L225.3 579.8 L221.5 605.1 L217.2 631.1 L214.4 662.5 L206.3 703 L183.4 765.1 L183.4 765.1 L183.4 765.1 L183.4 765.1 L183.4 765.1 L183.4 765.1 L526.7 865.7 L526.7 865.7 L526.7 865.7 L526.7 865.7 L526.7 865.7 L529.8 811.2 L554.2 789.4 L581.5 773.8 L620.5 771.8 L679.5 783.4 L763 802.3 L798.3 770.8 L838.8 739.8 L1000 799 L1000 799 L1000 799 L1000 799 L1000 799 L1000 799 L1000 799 L1000 799 L1000 799 L492.8 0 L492.8 0 L492.8 0 L492.8 0 L492.8 0 L492.8 0 L492.8 0 L492.8 0 L492.8 0 L492.8 0 L452.1 10.5 L403.1 112.8 L366.4 122.3 L335.5 166.6 L302.4 175.9 L262.6 165.3 L201.7 130.2 L221.4 234.9 L181.9 237.2 L108.3 212.1 L56.1 222.1 L0 237.6 L34.1 309.7 L158 405.6 L181.5 439.8 L208.3 467.4 L221.5 489.4 Z"/>
+    </svg>
+  </section>
+
+  <!-- 02 . LE RECUL. La ligne devient une courbe. -->
+  <section class="section mesure" id="mesure">
+    <p class="etiquette">02 · La mesure</p>
+    <h2>La moitié du littoral n’a pas bougé</h2>
+
+    <div class="colonnes">
+      <p class="corps">
+        L’indicateur couvre 3 879 des 4 659 kilomètres de trait de
+        côte naturel métropolitain. Sur ce linéaire, 2 379 kilomètres
+        n’ont pas bougé de façon mesurable en soixante ans. Le phénomène
+        n’est pas général, il est concentré.
+      </p>
+      <p class="corps">
+        Restent 1 500 kilomètres qui ont bougé. Leur répartition est
+        franchement dissymétrique : 935 kilomètres reculent contre
+        565 qui avancent. Et le recul est surtout lent, 557 kilomètres
+        perdant moins de 25 centimètres par an.
+      </p>
+    </div>
+
+    <figure class="figure">
+      <svg class="graphe graphe--courbe" viewBox="0 0 1000 340" preserveAspectRatio="none"
+           role="img" aria-label="Distribution du linéaire côtier par taux d’évolution. Le recul lent domine largement.">
+        <line class="axe" x1="0" y1="300" x2="1000" y2="300"/>
+        <line class="axe axe--zero" x1="500.0" y1="24" x2="500.0" y2="300"/>
+        <path class="aire aire--recul" d="M20.8 300 L20.8 299.1 L62.5 297.8 L104.2 296.6 L145.8 297.9 L187.5 295.5 L229.2 295.3 L270.8 292.4 L312.5 287.8 L354.2 279 L395.8 267.4 L437.5 217.6 L479.2 40 L479.2 300 Z"/>
+        <path class="aire aire--stable" d="M520.8 300 L520.8 150.7 L562.5 246.5 L604.2 273.5 L645.8 288.8 L687.5 296.6 L729.2 298.9 L770.8 296.8 L812.5 296.7 L854.2 297.7 L895.8 298.5 L937.5 293.1 L979.2 298.7 L979.2 300 Z"/>
+        <path class="courbe" d="M20.8 299.1 L62.5 297.8 L104.2 296.6 L145.8 297.9 L187.5 295.5 L229.2 295.3 L270.8 292.4 L312.5 287.8 L354.2 279 L395.8 267.4 L437.5 217.6 L479.2 40 L520.8 150.7 L562.5 246.5 L604.2 273.5 L645.8 288.8 L687.5 296.6 L729.2 298.9 L770.8 296.8 L812.5 296.7 L854.2 297.7 L895.8 298.5 L937.5 293.1 L979.2 298.7"/>
+      </svg>
+      <ul class="annotations">
+        <li><span class="annotations__valeur">557 km</span> recul lent, moins de 0,25 m/an</li>
+        <li><span class="annotations__valeur">935 km</span> en recul au total</li>
+        <li><span class="annotations__valeur">7,9 m/an</span> le segment le plus rapide</li>
+      </ul>
+      <figcaption class="note">
+        La courbe ne montre que la côte qui a bougé. Sa dissymétrie vers la
+        gauche est le fait marquant : le littoral ne recule pas partout, mais
+        là où il bouge, il recule bien plus souvent qu’il n’avance.
+      </figcaption>
+      <div class="equivalent">
+        <table>
+          <caption>Linéaire côtier par classe de taux d’évolution, en kilomètres</caption>
+          <thead><tr><th scope="col">Taux, en mètres par an</th><th scope="col">Linéaire, en km</th></tr></thead>
+          <tbody>
+            <tr><td>-3,00 à -2,75</td><td>2,0</td></tr>
+            <tr><td>-2,75 à -2,50</td><td>4,8</td></tr>
+            <tr><td>-2,50 à -2,25</td><td>7,2</td></tr>
+            <tr><td>-2,25 à -2,00</td><td>4,4</td></tr>
+            <tr><td>-2,00 à -1,75</td><td>9,7</td></tr>
+            <tr><td>-1,75 à -1,50</td><td>10,1</td></tr>
+            <tr><td>-1,50 à -1,25</td><td>16,3</td></tr>
+            <tr><td>-1,25 à -1,00</td><td>26,1</td></tr>
+            <tr><td>-1,00 à -0,75</td><td>44,9</td></tr>
+            <tr><td>-0,75 à -0,50</td><td>69,8</td></tr>
+            <tr><td>-0,50 à -0,25</td><td>176,4</td></tr>
+            <tr><td>-0,25 à 0,00</td><td>556,6</td></tr>
+            <tr><td>0,00 à 0,25</td><td>319,6</td></tr>
+            <tr><td>0,25 à 0,50</td><td>114,6</td></tr>
+            <tr><td>0,50 à 0,75</td><td>56,8</td></tr>
+            <tr><td>0,75 à 1,00</td><td>24,0</td></tr>
+            <tr><td>1,00 à 1,25</td><td>7,3</td></tr>
+            <tr><td>1,25 à 1,50</td><td>2,3</td></tr>
+            <tr><td>1,50 à 1,75</td><td>6,8</td></tr>
+            <tr><td>1,75 à 2,00</td><td>7,0</td></tr>
+            <tr><td>2,00 à 2,25</td><td>5,0</td></tr>
+            <tr><td>2,25 à 2,50</td><td>3,2</td></tr>
+            <tr><td>2,50 à 2,75</td><td>14,7</td></tr>
+            <tr><td>2,75 à 3,00</td><td>2,8</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </figure>
+  </section>
+
+  <!-- 03 . LA GEOGRAPHIE. La ligne devient un classement. -->
+  <section class="section geographie" id="geographie">
+    <p class="etiquette">03 · Les régions</p>
+    <h2>Quatre régions au-dessus de la moitié</h2>
+
+    <p class="corps">
+      Part du linéaire mesuré en recul, par région littorale. Les valeurs
+      absolues figurent à côté de chaque barre : la couleur ne porte jamais
+      seule l’information.
+    </p>
+
+    <figure class="figure">
+      <svg class="graphe graphe--barres" viewBox="0 0 820 464"
+           role="img" aria-label="Part du linéaire mesuré en recul, par région littorale, de la plus touchée à la moins touchée.">
+        <g class="barre">
+          <text class="barre__nom" x="0" y="16">Nouvelle-Aquitaine</text>
+          <text class="barre__km" x="820" y="16" text-anchor="end">185 km sur 297</text>
+          <rect class="barre__piste" x="0" y="26" width="560" height="10"/>
+          <rect class="barre__valeur" x="0" y="26" width="347.5" height="10"/>
+          <text class="barre__part" x="359.5" y="35">62,0 %</text>
+        </g>
+        <g class="barre">
+          <text class="barre__nom" x="0" y="74">Normandie</text>
+          <text class="barre__km" x="820" y="74" text-anchor="end">217 km sur 380</text>
+          <rect class="barre__piste" x="0" y="84" width="560" height="10"/>
+          <rect class="barre__valeur" x="0" y="84" width="318.8" height="10"/>
+          <text class="barre__part" x="330.8" y="93">56,9 %</text>
+        </g>
+        <g class="barre">
+          <text class="barre__nom" x="0" y="132">Occitanie</text>
+          <text class="barre__km" x="820" y="132" text-anchor="end">92 km sur 189</text>
+          <rect class="barre__piste" x="0" y="142" width="560" height="10"/>
+          <rect class="barre__valeur" x="0" y="142" width="273.4" height="10"/>
+          <text class="barre__part" x="285.4" y="151">48,8 %</text>
+        </g>
+        <g class="barre">
+          <text class="barre__nom" x="0" y="190">Hauts-de-France</text>
+          <text class="barre__km" x="820" y="190" text-anchor="end">53 km sur 113</text>
+          <rect class="barre__piste" x="0" y="200" width="560" height="10"/>
+          <rect class="barre__valeur" x="0" y="200" width="264" height="10"/>
+          <text class="barre__part" x="276.0" y="209">47,1 %</text>
+        </g>
+        <g class="barre">
+          <text class="barre__nom" x="0" y="248">Pays de la Loire</text>
+          <text class="barre__km" x="820" y="248" text-anchor="end">70 km sur 238</text>
+          <rect class="barre__piste" x="0" y="258" width="560" height="10"/>
+          <rect class="barre__valeur" x="0" y="258" width="164.3" height="10"/>
+          <text class="barre__part" x="176.3" y="267">29,3 %</text>
+        </g>
+        <g class="barre">
+          <text class="barre__nom" x="0" y="306">Provence-Alpes-Côte d'Azur</text>
+          <text class="barre__km" x="820" y="306" text-anchor="end">91 km sur 410</text>
+          <rect class="barre__piste" x="0" y="316" width="560" height="10"/>
+          <rect class="barre__valeur" x="0" y="316" width="123.7" height="10"/>
+          <text class="barre__part" x="135.7" y="325">22,1 %</text>
+        </g>
+        <g class="barre">
+          <text class="barre__nom" x="0" y="364">Corse</text>
+          <text class="barre__km" x="820" y="364" text-anchor="end">89 km sur 814</text>
+          <rect class="barre__piste" x="0" y="374" width="560" height="10"/>
+          <rect class="barre__valeur" x="0" y="374" width="61.5" height="10"/>
+          <text class="barre__part" x="73.5" y="383">11,0 %</text>
+        </g>
+        <g class="barre">
+          <text class="barre__nom" x="0" y="422">Bretagne</text>
+          <text class="barre__km" x="820" y="422" text-anchor="end">139 km sur 1 437</text>
+          <rect class="barre__piste" x="0" y="432" width="560" height="10"/>
+          <rect class="barre__valeur" x="0" y="432" width="54.2" height="10"/>
+          <text class="barre__part" x="66.2" y="441">9,7 %</text>
+        </g>
+      </svg>
+      <figcaption class="note">
+        La Bretagne concentre le plus long linéaire mesuré et l’une des plus
+        faibles parts de recul : une côte rocheuse résiste là où un cordon
+        dunaire cède. La longueur n’est pas la vulnérabilité.
+      </figcaption>
+      <div class="equivalent">
+        <table>
+          <caption>Recul du trait de côte par région littorale</caption>
+          <thead><tr><th scope="col">Région</th><th scope="col">En recul, km</th><th scope="col">Mesuré, km</th><th scope="col">Part en recul</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Nouvelle-Aquitaine</th><td>185</td><td>297</td><td>62,0 %</td></tr>
+            <tr><th scope="row">Normandie</th><td>217</td><td>380</td><td>56,9 %</td></tr>
+            <tr><th scope="row">Occitanie</th><td>92</td><td>189</td><td>48,8 %</td></tr>
+            <tr><th scope="row">Hauts-de-France</th><td>53</td><td>113</td><td>47,1 %</td></tr>
+            <tr><th scope="row">Pays de la Loire</th><td>70</td><td>238</td><td>29,3 %</td></tr>
+            <tr><th scope="row">Provence-Alpes-Côte d'Azur</th><td>91</td><td>410</td><td>22,1 %</td></tr>
+            <tr><th scope="row">Corse</th><td>89</td><td>814</td><td>11,0 %</td></tr>
+            <tr><th scope="row">Bretagne</th><td>139</td><td>1 437</td><td>9,7 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </figure>
+  </section>
+
+  <!-- 04 . CE QUI EST EN JEU. La section nue.
+       LA LIGNE EST ABSENTE ICI, seul endroit du document. -->
+  <section class="section enjeu" id="enjeu">
+    <p class="etiquette">04 · Ce qui est en jeu</p>
+    <p class="chiffre chiffre--seul"><span class="chiffre__valeur">495</span> <span class="chiffre__unite">kilomètres</span></p>
+    <p class="phrase">de trait de côte ne sont couverts par aucune mesure. On ignore s’ils reculent.</p>
+  </section>
+
+  <!-- 05 . METHODE ET SOURCES. La ligne revient, reduite a un trait. -->
+  <section class="section methode" id="methode">
+    <p class="etiquette">05 · Méthode et sources</p>
+    <h2>Comment ces chiffres ont été obtenus</h2>
+
+    <svg class="ligne ligne--trait" viewBox="0 0 1000 4" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 2 L1000 2"/>
+    </svg>
+
+    <div class="colonnes">
+      <div>
+        <h3>Le jeu de données</h3>
+        <p class="corps">
+          Indicateur national de l’érosion côtière, produit par le Cerema pour
+          le MTES-DGALN, diffusé sur GéoLittoral. Couches
+          <code>N_evolution_trait_cote_S</code> et
+          <code>N_traits_cote_naturels_recents_L</code>, France métropolitaine,
+          projection Lambert 93. Données produites en 2015,
+          fichiers mis à jour le 19 décembre 2017.
+        </p>
+        <h3>La méthode</h3>
+        <p class="corps">
+          Le taux d’évolution est porté par des polygones, les longueurs de
+          côte par des lignes, avec des découpages différents. Chaque segment
+          de trait de côte a donc été rattaché par jointure spatiale au
+          polygone qui le contient, puis compté pour sa longueur réelle.
+          Multiplier une part de segments par une longueur totale aurait
+          supposé des segments de taille égale, ce qui est faux.
+        </p>
+      </div>
+      <div>
+        <h3>Les limites, déclarées</h3>
+        <p class="corps">
+          Les données datent de 2015. Un rapport publié en 2026 sur des
+          données de 2015 reste exact, à condition de le dire ici plutôt
+          qu’en note de bas de page.
+        </p>
+        <p class="corps">
+          495 kilomètres de trait de côte ne sont couverts par aucun
+          polygone de mesure, et 285 kilomètres portent une valeur
+          sentinelle sans mesure réelle. Ces 779 kilomètres sont exclus
+          des pourcentages et déclarés.
+        </p>
+        <p class="corps">
+          Rapportée au trait de côte total, la part en recul vaut 20,1 %
+          et non 24,1 %. Les deux chiffres sont exacts et ne
+          répondent pas à la même question. Ce rapport publie le second.
+        </p>
+        <p class="corps">
+          Un taux moyen sur soixante ans masque les événements. Une côte stable
+          en moyenne peut avoir reculé de dix mètres en une tempête. Seule la
+          France métropolitaine est traitée, et seul le trait de côte naturel
+          est mesuré, à l’exclusion des portions artificialisées.
+        </p>
+      </div>
+    </div>
+
+    <p class="note">
+      Contours régionaux : OpenStreetMap, export du 1er janvier 2018, licence
+      ODbL. © les contributeurs d’OpenStreetMap sous licence ODbL.
+    </p>
+
+    <ul class="telechargements">
+      <li><a href="/donnees/traite.json" download>Télécharger les données traitées, JSON</a></li>
+      <li><a href="/donnees/NOTES.md" download>Télécharger le journal de traitement</a></li>
+    </ul>
+  </section>
+
+</main>
+</body>
+</html>
