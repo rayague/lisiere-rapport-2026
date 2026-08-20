@@ -309,4 +309,4 @@ console.log('  index.html genere      : ' + (fs.statSync(path.join(R, 'index.htm
 console.log('  regions dans les barres: ' + t.regions.length);
 console.log('  classes dans la courbe : ' + t.distribution.classes.length);
 console.log('  tableaux equivalents   : 2');
-console.log('  scripts JavaScript     : 0');
+console.log('  script d animation     : src/main.js, la page reste exacte sans lui');
