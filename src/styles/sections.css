@@ -266,3 +266,54 @@
     transition-duration:.01ms !important;
   }
 }
+
+
+/* ══ LE FIL CONTINU ═════════════════════════════════════════════════════════
+   Une seule ligne qui traverse tout le document, du littoral au trait final.
+
+   Elle est PUREMENT ADDITIVE : elle n'apparaît qu'une fois que le module a
+   réussi son premier rendu, et ne masque jamais qu'une station à la fois,
+   celle qu'elle occupe. Sans JavaScript, aucune de ces règles ne s'applique
+   et les quatre graphiques d'origine portent la page comme avant.          */
+
+.fil{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;      /* le fil ne doit jamais intercepter un clic */
+  z-index:1;
+  opacity:0;
+  transition:opacity var(--t-moyen) var(--e-doux);
+}
+
+.fil-actif .fil{ opacity:1; }
+
+.fil__trait{
+  fill:none;
+  stroke:var(--encre);
+  stroke-width:var(--ligne);
+  stroke-linejoin:round;
+  stroke-linecap:round;
+}
+
+/* La station occupée par le fil cède son propre trait, le temps qu'il y soit.
+   Les aires, les axes, les barres et tous les libellés restent en place : le
+   fil emprunte une forme, il ne remplace pas un graphique.                 */
+.ligne--littoral.fil-pris path,
+.ligne--trait.fil-pris path,
+.graphe--courbe.fil-pris .courbe{
+  opacity:0;
+}
+
+/* Les barres ne cèdent rien : ce sont elles qui portent la donnée. Le fil ne
+   fait que suivre leur profil en passant.                                  */
+
+@media (prefers-reduced-motion: reduce){
+  .fil{ display:none; }
+}
+
+@media print{
+  .fil{ display:none; }
+  .fil-pris path, .fil-pris .courbe{ opacity:1 !important; }
+}

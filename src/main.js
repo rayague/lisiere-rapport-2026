@@ -29,6 +29,7 @@ import Lenis from 'lenis';
 import { playSignature } from './signature.js';
 import { tracer } from './ligne.js';
 import { compter } from './compteur.js';
+import { initFil } from './fil.js';
 import { initSerie } from './graphiques/serie.js';
 import { initClassement } from './graphiques/classement.js';
 
@@ -98,6 +99,8 @@ function entreeHero() {
   // chercher un chiffre, il ne doit pas attendre la fin d'une chorégraphie
   compter(document.querySelector('.hero .chiffre__valeur'),
           { duree: 0.7, reduit: REDUIT, cible: cibleHero });
+
+  return tl;
 }
 
 
@@ -184,6 +187,18 @@ playSignature({
   storageKey: 'lisiere-signature-vue'
 }).then(() => {
   lenis.start();
-  entreeHero();
+  const entree = entreeHero();
   ScrollTrigger.refresh();
+
+  /* LE FIL NE PREND LA MAIN QU'APRES L'ENTREE DU HERO.
+     Le littoral se trace en 900 ms par stroke-dashoffset sur le SVG d'origine.
+     Si le fil s'emparait de cette station tout de suite, il masquerait le tracé
+     au moment même où il se joue. Il attend donc que l'entrée soit finie, puis
+     reprend la ligne là où elle vient de s'achever. */
+  const demarrerFil = () => {
+    const fil = initFil({ reduit: REDUIT });
+    if (fil) gsap.ticker.add(fil.dessiner);
+  };
+  if (entree && entree.then) entree.then(demarrerFil);
+  else demarrerFil();
 });

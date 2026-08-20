@@ -167,8 +167,8 @@ cabinet soumis au RGAA a des obligations contraignantes.
 
 | Poste | Mesure | Budget |
 |---|---|---|
-| Premier rendu | 115,2 Ko | 200 Ko |
-| JavaScript gzip | 54,7 Ko | 75 Ko |
+| Premier rendu | 116,2 Ko | 200 Ko |
+| JavaScript gzip | 55,6 Ko | 75 Ko |
 | Polices | 53,6 Ko | 60 Ko |
 | Contraste, texte visible | 0 échec | |
 | Débordement horizontal | aucun | |
@@ -209,16 +209,43 @@ l'animation était le contenu.
   Troisième palette du studio, troisième démonstration que la signature est
   une chorégraphie et non une palette.
 
+### Le fil continu
+
+**Une seule ligne traverse tout le document.** Elle est le littoral dans le
+hero, devient la courbe de distribution, puis le profil du classement, puis
+le trait sous la conclusion. C'est le concept du projet enfin tenu.
+
+Trois décisions le rendent sûr :
+
+- **Il est purement additif.** Les quatre SVG d'origine restent la source de
+  vérité et portent les données, les tableaux équivalents et les libellés. Le
+  fil leur emprunte une forme, il ne remplace rien. S'il échoue, ou sans
+  JavaScript, la page est exactement celle d'avant.
+- **Une seule station est masquée à la fois**, celle que le fil occupe.
+  Masquer les quatre laisserait une section sans sa ligne pendant que le fil
+  est ailleurs.
+- **Les points sont mis en cache dans l'espace de chaque SVG**, et seule la
+  matrice de projection est recalculée à chaque image. Échantillonner un
+  chemin coûte cher, projeter ne coûte rien. Le fil se pose ainsi sur le
+  graphique réel à toutes les tailles d'écran sans qu'une seule coordonnée
+  soit codée en dur.
+
+Mesuré : l'écart moyen entre le fil et le trait qu'il épouse est de **0,03 à
+0,05 pixel** aux quatre stations. En transit il s'allège à 45 % d'opacité,
+pour ne pas barrer les titres qu'il croise.
+
+Coût : **900 octets** gzip.
+
 Le JavaScript n'ajoute aucun contenu : il pose un état de départ puis revient
 à l'état du document. La page reste exacte s'il échoue.
 
 ## Points ouverts
 
-- **Le morphing est local, pas continu.** Le concept veut qu'une seule ligne
-  parcoure le document du haut en bas. Elle se trace dans le hero et se
-  déplie en courbe dans la section 02, mais chaque section porte son propre
-  SVG plutôt qu'un élément unique qui traverserait toute la page. Le geste
-  est là, la continuité stricte reste à faire.
+- **Le fil ne traverse pas les sections nues.** Il relie les quatre
+  graphiques, mais la section 04 et la conclusion n'en portent aucun : le fil
+  saute donc par-dessus plutôt que de les traverser. C'est défendable, le
+  silence étant voulu à cet endroit, mais ce n'est pas la ligne ininterrompue
+  du concept.
 - **Les données datent de 2015** alors que le rapport s'intitule *Rapport
   2026*. C'est exact à condition de le dire en évidence, ce que fait la
   section méthode.
