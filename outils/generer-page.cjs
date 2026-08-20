@@ -296,6 +296,10 @@ A('    </ul>');
 A('  </section>');
 A('');
 A('</main>');
+A('');
+A('<!-- Le JavaScript n’ajoute aucun contenu : il pose un état de départ puis');
+A('     revient à l’état du document. S’il échoue, la page reste complète. -->');
+A('<script type="module" src="/src/main.js"></script>');
 A('</body>');
 A('</html>');
 

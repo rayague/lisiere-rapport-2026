@@ -166,22 +166,58 @@ cabinet soumis au RGAA a des obligations contraignantes.
 
 | Poste | Mesure | Budget |
 |---|---|---|
-| Premier rendu | 98,8 Ko | 200 Ko |
-| Polices | 65,9 Ko | 60 Ko |
-| JavaScript livré | 0 Ko | 75 Ko |
+| Premier rendu | 115,2 Ko | 200 Ko |
+| JavaScript gzip | 54,7 Ko | 75 Ko |
+| Polices | 53,6 Ko | 60 Ko |
 | Contraste, texte visible | 0 échec | |
 | Débordement horizontal | aucun | |
+| Glyphes manquants | 0 sur 85 | |
 
-Les polices dépassent de 5,9 Ko. C'est déclaré plutôt que masqué : trois
-leviers restent disponibles, réduire la marge de sécurité du sous-ensemble,
-fusionner les deux graisses de Mono, ou assumer le dépassement puisque le
-budget qui commande est celui du premier rendu.
+Les polices dépassaient d'abord de 5,9 Ko, parce qu'elles étaient
+sous-ensemblées sur la copy plus une marge de sécurité. Une fois la page
+finale connue, le sous-ensemble a été refait sur les 89 glyphes réellement
+composés, et vérifié au pixel pour s'assurer qu'aucun caractère ne tombe en
+carré vide.
+
+`d3-scale` et `d3-shape` étaient autorisés par le brief et n'ont pas été
+utilisés : les formes sont pré-calculées dans `data/formes.json`, ce qui
+économise environ 15 Ko pour un résultat identique.
+
+## Le mouvement
+
+**Une animation ne doit jamais retarder la compréhension d'un chiffre.**
+C'est la règle qui commande, et elle est l'inverse de celle de SÈVE où
+l'animation était le contenu.
+
+- **Deux compteurs dans tout le document**, pas un de plus. Le chiffre du
+  hero et celui de la section 04. Des nombres qui défilent partout sont un
+  tic qui rend un rapport illisible.
+- **Le morphing sans plugin.** `MorphSVGPlugin` est réservé aux abonnés du
+  Club GreenSock. Deux formes construites avec le même nombre de points, dans
+  le même ordre, s'interpolent terme à terme : trente lignes de code, zéro
+  dépendance. La courbe se déplie depuis une ligne plate posée sur l'axe.
+- **Plafond de 800 ms** pour qu'un graphique atteigne son état final. Les
+  barres régionales, section la plus animée, finissent en 780 ms.
+- **Décalage de 40 ms** et non 120 comme dans SÈVE : là-bas on cherchait la
+  respiration, ici la lecture.
+- **Pas de flou de vitesse.** Il servait la caméra dans SÈVE, ici il rendrait
+  les chiffres flous.
+- **Chaque graphique se dessine une fois**, puis s'arrête. Jamais de boucle,
+  jamais de rejeu au scroll inverse.
+- **La signature est raccourcie à 1,6 s**, en `--recul` sur `--encre`.
+  Troisième palette du studio, troisième démonstration que la signature est
+  une chorégraphie et non une palette.
+
+Le JavaScript n'ajoute aucun contenu : il pose un état de départ puis revient
+à l'état du document. La page reste exacte s'il échoue.
 
 ## Points ouverts
 
-- **Les animations ne sont pas faites.** La méthode du studio impose trois
-  sessions : la donnée, la structure statique, puis le mouvement. La page est
-  ici à la fin de la deuxième.
+- **Le morphing est local, pas continu.** Le concept veut qu'une seule ligne
+  parcoure le document du haut en bas. Elle se trace dans le hero et se
+  déplie en courbe dans la section 02, mais chaque section porte son propre
+  SVG plutôt qu'un élément unique qui traverserait toute la page. Le geste
+  est là, la continuité stricte reste à faire.
 - **Les données datent de 2015** alors que le rapport s'intitule *Rapport
   2026*. C'est exact à condition de le dire en évidence, ce que fait la
   section méthode.
