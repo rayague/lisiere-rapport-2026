@@ -178,6 +178,18 @@ initMethode();
    devenir un péage à l'entrée d'un rapport que l'on vient consulter, souvent
    plusieurs fois. Une fois par session, puis un fondu court.
    Pour la revoir en cours de revue : vider sessionStorage, ou fenêtre privée. */
+/* PORTE DE SORTIE : ajouter ?signature à l'URL rejoue la signature.
+
+   oncePerSession est le bon réglage en production, mais il rend la signature
+   invisible dès le second chargement, y compris pour celui qui vient de la
+   fabriquer. Vider sessionStorage à la main marche, encore faut-il y penser.
+   Ce paramètre efface la marque avant que le module la lise : il fonctionne
+   en local comme sur le site déployé, et ne coûte rien à un visiteur qui ne
+   le connaît pas. */
+if (/[?&]signature/.test(location.search)) {
+  try { sessionStorage.removeItem('lisiere-signature-vue'); } catch (_) {}
+}
+
 playSignature({
   peau:  TOKENS.recul,
   chair: TOKENS.papier,

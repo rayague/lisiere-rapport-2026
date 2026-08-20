@@ -127,6 +127,12 @@ dépôt public, c'est non. [`data/EMPREINTES.txt`](data/EMPREINTES.txt) contient
 les URL et les sommes SHA-256 des cinq archives : retélécharger, vérifier
 l'empreinte, relancer, et les chiffres sont identiques.
 
+
+**Revoir la signature.** Elle ne joue qu'une fois par session, pour ne pas
+devenir un péage à l'entrée. Pour la rejouer, ajouter `?signature` à l'URL :
+cela marche en local comme sur le site déployé, et ne coûte rien à un
+visiteur qui ne le connaît pas.
+
 ## Pile technique
 
 `Vite` · `HTML/CSS écrits à la main` · `SVG inline` · aucun framework
