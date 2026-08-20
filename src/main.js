@@ -171,16 +171,17 @@ initMethode();
 
    Troisième palette du studio, troisième démonstration que la signature est
    une chorégraphie et non une palette. */
-/* oncePerSession: false. La méthode du studio impose true en production, pour
-   ne pas transformer la signature en péage à l'entrée. En phase de revue on
-   veut la revoir à chaque chargement, sinon elle disparaît dès le second et
-   on croit qu'elle est cassée. À repasser à true avant livraison client. */
+/* oncePerSession: true, réglage de production. La signature ne doit pas
+   devenir un péage à l'entrée d'un rapport que l'on vient consulter, souvent
+   plusieurs fois. Une fois par session, puis un fondu court.
+   Pour la revoir en cours de revue : vider sessionStorage, ou fenêtre privée. */
 playSignature({
   peau:  TOKENS.recul,
   chair: TOKENS.papier,
   fond:  TOKENS.encre,
   duration: 1.6,
-  oncePerSession: false
+  oncePerSession: true,
+  storageKey: 'lisiere-signature-vue'
 }).then(() => {
   lenis.start();
   entreeHero();
