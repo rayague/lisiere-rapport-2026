@@ -173,9 +173,13 @@ export function initFil({ reduit = false } = {}) {
     const maxi = Math.max(1, document.documentElement.scrollHeight - H);
     const dernier = sources.length - 1;
 
+    /* Seule la PREMIERE station est épinglée, en haut du document, parce que
+       le littoral du hero ne peut jamais être centré. La dernière ne l'est
+       pas : épingler le trait final au bas du document le plaçait 722 px
+       au-delà de sa position réelle, si bien que le fil n'atteignait sa forme
+       finale qu'une fois ce trait sorti de l'écran, donc jamais visible. */
     const poses = sources.map((s, k) => {
       if (k === 0) return 0;
-      if (k === dernier) return maxi;
       const r = s.getBoundingClientRect();
       return Math.min(maxi, Math.max(0, y + r.top + r.height / 2 - H / 2));
     });
@@ -192,16 +196,34 @@ export function initFil({ reduit = false } = {}) {
 
     trait.setAttribute('d', versD(melanger(pa, pb, adoucir(t))));
 
-    /* En transit, le fil s'allège. Entre deux stations il ne décrit plus rien
-       de vrai et traversé en pleine encre il barrerait les titres ; posé sur
-       une station il redevient plein, parce qu'il EST alors le graphique. */
-    trait.style.opacity = (1 - Math.sin(Math.PI * t) * 0.55).toFixed(3);
+    /* LE FIL N'EXISTE QUE LA OU IL Y A UN GRAPHIQUE.
 
-    /* UNE SEULE station est masquée à la fois : celle que le fil occupe.
-       Masquer les quatre laisserait une section sans sa ligne pendant que le
-       fil est ailleurs. Ici, chaque graphique garde le sien jusqu'à ce que le
-       fil vienne le prendre, et le récupère dès qu'il repart. */
+       Un fondu à mi-transit ne suffisait pas. Entre les barres et le trait
+       final s'intercale la section nue, plus de 1000 px de transit sur mobile :
+       le fil y affichait un mélange qui ne décrit rien, en travers du texte.
+
+       Le brief est net sur cette section : pas de graphique, pas de ligne,
+       rien d'autre sur l'écran. L'opacité ne suit donc plus la progression
+       mais la PRESENCE A L'ECRAN de la station dominée. Dès qu'aucun
+       graphique n'est en vue, le fil s'efface complètement. */
     const prise = t < 0.5 ? i : i + 1;
+    const r = sources[prise].getBoundingClientRect();
+
+    /* La FRACTION VISIBLE de la station, et non sa distance hors champ.
+       Mesurer la distance laissait le fil encré jusqu'à 284 px après la sortie
+       de sa station : le trait final était déjà entièrement au-dessus de
+       l'écran que le fil s'affichait encore à 99 %. Avec la fraction visible,
+       une station sortie du champ vaut zéro, sans tolérance. */
+    const vu = Math.max(0, Math.min(r.bottom, H) - Math.max(r.top, 0));
+
+    /* Le seuil de pleine encre est le QUART de l'écran, pas la hauteur du
+       graphique. Exiger qu'il tienne entièrement dans la fenêtre affichait le
+       littoral à 63 % au chargement sur mobile, où il dépasse sous la ligne de
+       flottaison. Un quart d'écran visible suffit à dire qu'on y est.
+       Le trait final, haut de 4 px, garde sa propre hauteur pour seuil. */
+    const plein = Math.max(1, Math.min(r.height, H * 0.25));
+    trait.style.opacity = Math.min(1, vu / plein).toFixed(3);
+
     if (prise !== priseActuelle) {
       sources.forEach((s, k) => s.classList.toggle('fil-pris', k === prise));
       priseActuelle = prise;

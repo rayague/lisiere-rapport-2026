@@ -247,11 +247,12 @@ Le JavaScript n'ajoute aucun contenu : il pose un état de départ puis revient
 
 ## Points ouverts
 
-- **Le fil ne traverse pas les sections nues.** Il relie les quatre
-  graphiques, mais la section 04 et la conclusion n'en portent aucun : le fil
-  saute donc par-dessus plutôt que de les traverser. C'est défendable, le
-  silence étant voulu à cet endroit, mais ce n'est pas la ligne ininterrompue
-  du concept.
+- **Le fil ne traverse pas les sections nues, et c'est désormais imposé.**
+  Son opacité suit la fraction visible de la station qu'il occupe : dès
+  qu'aucun graphique n'est à l'écran, il s'efface complètement. Le brief est
+  net sur la section 04, *pas de graphique, pas de ligne, rien d'autre sur
+  l'écran*. La ligne ininterrompue du concept reste donc volontairement non
+  tenue à cet endroit : le silence prime sur la continuité.
 - **Les données datent de 2015** alors que le rapport s'intitule *Rapport
   2026*. C'est exact à condition de le dire en évidence, ce que fait la
   section méthode.
